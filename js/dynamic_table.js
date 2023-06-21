@@ -61,7 +61,7 @@ function renderTable(championData) {
       var row = $('<tr>');
 
     // Append image for the champion
-    var imageName = champion.Name.replace(/[' .]/g, "");
+    var imageName = champion.Name.replace(/[^a-zA-Z0-9]/g, "")
     var imageSrc = "championsgallery/" + imageName + ".png";
     var imageCell = $('<td>');
     var image = new Image(); // Create new HTMLImageElement instance
