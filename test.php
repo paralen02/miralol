@@ -9,6 +9,7 @@ try {
     header('Content-Type: application/json'); // Set the response content type to JSON
     echo json_encode($result); // Encode the result as JSON and echo it
 } catch (PDOException $e) {
-    die("Error connecting to SQL Server: " . $e->getMessage());
+    header('Content-Type: application/json'); // Set the response content type to JSON
+    echo json_encode(['error' => $e->getMessage()]); // Encode the error message as JSON and echo it
 }
 ?>
