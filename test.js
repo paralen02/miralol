@@ -1,32 +1,45 @@
-// Fetch data from the PHP file
-fetch("data.php")
-.then(response => response.json())
-.then(data => {
-    // Create a table element
-    let table = document.createElement("table");
+document.addEventListener("DOMContentLoaded", function() {
+    fetch("test.php")
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`Error status: ${response.status}`);
+            }
+            return response.json();
+        })
+        .then(result => {
+            if (result.error) {
+                console.log("Error: " + result.error);
+            } else {
+                let table = document.createElement("table");
+                let thead = document.createElement("thead");
+                let tbody = document.createElement("tbody");
 
-    // Iterate over the data array
-    for (let row of data) {
-        // Create a new row element
-        let tr = document.createElement("tr");
+                // Create table headers
+                let headers = Object.keys(result[0]);
+                let headerRow = document.createElement("tr");
+                headers.forEach(header => {
+                    let th = document.createElement("th");
+                    th.textContent = header;
+                    headerRow.appendChild(th);
+                });
+                thead.appendChild(headerRow);
+                table.appendChild(thead);
 
-        // Iterate over the properties of the row object
-        for (let key in row) {
-            // Create a new cell element
-            let td = document.createElement("td");
+                // Create table rows and cells
+                result.forEach(row => {
+                    let rowElement = document.createElement("tr");
+                    Object.values(row).forEach(value => {
+                        let cell = document.createElement("td");
+                        cell.textContent = value;
+                        rowElement.appendChild(cell);
+                    });
+                    tbody.appendChild(rowElement);
+                });
+                table.appendChild(tbody);
 
-            // Set the text content of the cell
-            td.textContent = row[key];
-
-            // Append the cell to the row
-            tr.appendChild(td);
-        }
-
-        // Append the row to the table
-        table.appendChild(tr);
-    }
-
-    // Append the table to the result div
-    document.getElementById("result").appendChild(table);
-})
-.catch(error => console.log(error));
+                // Append the table to the document
+                document.getElementById("result").appendChild(table);
+            }
+        })
+        .catch(error => console.log(error));
+});
