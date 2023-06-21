@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>MiraLOL - Graphs</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Triunfa mientras juegas" name="keywords">
+    <meta content="Triunfa mientras juegas" name="description">
+
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet"> 
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/animate/animate.min.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container-xxl bg-white p-0">
+        <!-- Spinner Start -->
+        <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+            <div class="spinner-grow text-primary" style="width: 3rem; height: 3rem;" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+        </div>
+        <!-- Spinner End -->
+
+
+        <!-- Navbar & Hero Start -->
+        <div class="container-xxl position-relative p-0">
+            <nav class="navbar navbar-expand-lg navbar-light bg-black px-4 px-lg-5 py-3 py-lg-0">
+                <a href="" class="navbar-brand p-0">
+                    <h1 class="m-0"><i class="fa-solid fa-computer-mouse fa-sm" style="color: #fbab17;"></i> Mira<span>LOL</span></h1>
+                    <!-- <img src="img/logo.png" alt="Logo"> -->
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                    <span class="fa fa-bars"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <div class="navbar-nav ms-auto py-0">
+                        <a href="index.html" class="nav-item nav-link">Home</a>
+                        <a href="champions.html" class="nav-item nav-link">Champions</a>
+                        <a href="stats.html" class="nav-item nav-link">Stats</a>
+                        <div class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Tier Lists</a>
+                            <div class="dropdown-menu m-0">
+                                <a href="lol_tier.html" class="dropdown-item">LoL</a>
+                                <a href="adc_tier.html" class="dropdown-item">ADC</a>
+                                <a href="jungle_tier.html" class="dropdown-item">Jungle</a>
+                                <a href="mid_tier.html" class="dropdown-item">Mid</a>
+                                <a href="support_tier.html" class="dropdown-item">Support</a>
+                                <a href="top_tier.html" class="dropdown-item">Top</a>
+                            </div>
+                        </div>
+                        <a href="graphs.html" class="nav-item nav-link active">Graphs</a>
+                    </div>
+                </div>
+            </nav>
+
+            <div class="container-xxl py-5 bg-black hero-header mb-5">
+                <div class="container my-5 py-5 px-lg-5">
+                    <div class="row g-5 py-5">
+                        <div class="col-12 text-center">
+                            <h1 class="text-white animated zoomIn">Gráficos</h1>
+                            <hr class="bg-white mx-auto mt-0" style="width: 90px;">
+                            <nav aria-label="breadcrumb">
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Navbar & Hero End --> 
+
+        <!-- Full Screen Search Start -->
+        <div class="modal fade" id="searchModal" tabindex="-1">
+            <div class="modal-dialog modal-fullscreen">
+                <div class="modal-content" style="background: rgba(29, 29, 39, 0.7);">
+                    <div class="modal-header border-0">
+                        <button type="button" class="btn bg-white btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body d-flex align-items-center justify-content-center">
+                        <div class="input-group" style="max-width: 600px;">
+                            <input type="text" class="form-control bg-transparent border-light p-3" placeholder="Type search keyword">
+                            <button class="btn btn-light px-4"><i class="bi bi-search"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Full Screen Search End -->
+
+                       <!-- Contact Start -->
+       <div class="container-xxl bg-black py-5">
+        <div class="container px-lg-5">
+            <div class="row justify-content-center">
+                <div class="col-lg-7">
+                    <div class="section-title position-relative text-center mb-5 pb-2 wow fadeInUp" data-wow-delay="0.1s">
+                        <h6 class="position-relative d-inline text-primary ps-4">Gráficos</h6>
+                        <h2 class="mt-2 text-white">Estadísticas de Personajes POR PICK %</h2>
+                    </div>
+                    <div class="wow fadeInUp" data-wow-delay="0.3s">      
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Contact End -->  
+
+        <div class="chartCard">
+            <div class="chartBox">
+              <div>
+                <label for="characterFilter3">Filtrar el Campeón por letra:</label>
+                <select id="characterFilter3">
+                  <option value="all">Todos</option>
+                  <option value="a">A</option>
+                  <option value="b">B</option>
+                  <option value="c">C</option>
+                  <option value="d">D</option>
+                  <option value="e">E</option>
+                  <option value="f">F</option>
+                  <option value="g">G</option>
+                  <option value="h">H</option>
+                  <option value="i">I</option>
+                  <option value="j">J</option>
+                  <option value="k">K</option>
+                  <option value="l">L</option>
+                  <option value="m">M</option>
+                  <option value="n">N</option>
+                  <option value="o">O</option>
+                  <option value="p">P</option>
+                  <option value="q">Q</option>
+                  <option value="r">R</option>
+                  <option value="s">S</option>
+                  <option value="t">T</option>
+                  <option value="u">U</option>
+                  <option value="v">V</option>
+                  <option value="w">W</option>
+                  <option value="x">X</option>
+                  <option value="y">Y</option>
+                  <option value="z">Z</option>
+                </select>
+                <label for="roleFilter3">Filtrar por rol:</label>
+                <select id="roleFilter3">
+                  <option value="all">Todos</option>
+                  <option value="TOP">TOP</option>
+                  <option value="MID">MID</option>
+                  <option value="SUPPORT">SUPPORT</option>
+                  <option value="ADC">ADC</option>
+                  <option value="JUNGLE">JUNGLE</option>
+                </select>
+                <label for="sortOrder3">Ordenar:</label>
+                <select id="sortOrder3">
+                  <option value="desc">Mayor a menor</option>
+                  <option value="asc">Menor a mayor</option>
+                </select>
+                
+              </div>
+              <canvas id="myChart3"></canvas>
+            </div>
+          </div>
+        
+    <!-- Contact Start -->
+       <div class="container-xxl bg-black py-5">
+        <div class="container px-lg-5">
+            <div class="row justify-content-center">
+                <div class="col-lg-7">
+                    <div class="section-title position-relative text-center mb-5 pb-2 wow fadeInUp" data-wow-delay="0.1s">
+                        <h6 class="position-relative d-inline text-primary ps-4">Gráficos</h6>
+                        <h2 class="mt-2 text-white">Estadísticas de Personajes POR BAN %</h2>
+                    </div>
+                    <div class="wow fadeInUp" data-wow-delay="0.3s">      
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Contact End -->  
+          <div class="chartCard">
+            <div class="chartBox">
+              <div>
+                <label for="characterFilter1">Filtrar el Campeón por letra:</label>
+                <select id="characterFilter1">
+                  <option value="all">Todos</option>
+                  <option value="a">A</option>
+                  <option value="b">B</option>
+                  <option value="c">C</option>
+                  <option value="d">D</option>
+                  <option value="e">E</option>
+                  <option value="f">F</option>
+                  <option value="g">G</option>
+                  <option value="h">H</option>
+                  <option value="i">I</option>
+                  <option value="j">J</option>
+                  <option value="k">K</option>
+                  <option value="l">L</option>
+                  <option value="m">M</option>
+                  <option value="n">N</option>
+                  <option value="o">O</option>
+                  <option value="p">P</option>
+                  <option value="q">Q</option>
+                  <option value="r">R</option>
+                  <option value="s">S</option>
+                  <option value="t">T</option>
+                  <option value="u">U</option>
+                  <option value="v">V</option>
+                  <option value="w">W</option>
+                  <option value="x">X</option>
+                  <option value="y">Y</option>
+                  <option value="z">Z</option>
+                </select>
+                <label for="roleFilter1">Filtrar por rol:</label>
+                <select id="roleFilter1">
+                  <option value="all">Todos</option>
+                  <option value="TOP">TOP</option>
+                  <option value="MID">MID</option>
+                  <option value="SUPPORT">SUPPORT</option>
+                  <option value="ADC">ADC</option>
+                  <option value="JUNGLE">JUNGLE</option>
+                </select>
+                <label for="sortOrder1">Ordenar:</label>
+                <select id="sortOrder1">
+                  <option value="desc">Mayor a menor</option>
+                  <option value="asc">Menor a mayor</option>
+                </select>
+                
+              </div>
+              <canvas id="myChart1"></canvas>
+            </div>
+          </div>
+        
+              <!-- Contact Start -->
+       <div class="container-xxl py-5 bg-black">
+        <div class="container px-lg-5">
+            <div class="row justify-content-center">
+                <div class="col-lg-7">
+                    <div class="section-title position-relative text-center mb-5 pb-2 wow fadeInUp" data-wow-delay="0.1s">
+                        <h6 class="position-relative d-inline text-primary ps-4">Gráficos</h6>
+                        <h2 class="mt-2 text-white">Estadísticas de Personajes POR SCORE %</h2>
+                    </div>
+                    <div class="wow fadeInUp" data-wow-delay="0.3s">      
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Contact End --> 
+          <div class="chartCard">
+            <div class="chartBox">
+              <div>
+                <label for="characterFilter2">Filtrar el Campeón por letra:</label>
+                <select id="characterFilter2">
+                  <option value="all">Todos</option>
+                  <option value="a">A</option>
+                  <option value="b">B</option>
+                  <option value="c">C</option>
+                  <option value="d">D</option>
+                  <option value="e">E</option>
+                  <option value="f">F</option>
+                  <option value="g">G</option>
+                  <option value="h">H</option>
+                  <option value="i">I</option>
+                  <option value="j">J</option>
+                  <option value="k">K</option>
+                  <option value="l">L</option>
+                  <option value="m">M</option>
+                  <option value="n">N</option>
+                  <option value="o">O</option>
+                  <option value="p">P</option>
+                  <option value="q">Q</option>
+                  <option value="r">R</option>
+                  <option value="s">S</option>
+                  <option value="t">T</option>
+                  <option value="u">U</option>
+                  <option value="v">V</option>
+                  <option value="w">W</option>
+                  <option value="x">X</option>
+                  <option value="y">Y</option>
+                  <option value="z">Z</option>
+                </select>
+                <label for="roleFilter2">Filtrar por rol:</label>
+                <select id="roleFilter2">
+                  <option value="all">Todos</option>
+                  <option value="TOP">TOP</option>
+                  <option value="MID">MID</option>
+                  <option value="SUPPORT">SUPPORT</option>
+                  <option value="ADC">ADC</option>
+                  <option value="JUNGLE">JUNGLE</option>
+                </select>
+                <label for="sortOrder2">Ordenar:</label>
+                <select id="sortOrder2">
+                  <option value="desc">Mayor a menor</option>
+                  <option value="asc">Menor a mayor</option>
+                </select>
+                
+                </div>
+              <canvas id="myChart2"></canvas>
+            </div>
+        </div>
+
+        <!-- Footer Start -->
+        <div class="container-fluid bg-black text-light footer mt-5 pt-5 wow fadeIn" data-wow-delay="0.1s">
+            <div class="container py-5 px-lg-5">
+                <div class="row g-5">
+                    <div class="col-md-6 col-lg-3">
+                        <h5 class="text-white mb-4">Contáctanos</h5>
+                        <p><i class="fa fa-map-marker-alt me-3"></i>Prolongación Primavera 2390, Monterrico, Santiago de Surco</p>
+                        <p><i class="fa fa-phone-alt me-3"></i>(01) 630-3333</p>
+                        <p><i class="fa fa-envelope me-3"></i>contacto@miralol.com</p>
+                        <div class="d-flex pt-2">
+                            <a class="btn btn-outline-light btn-social" href="https://twitter.com/UPCedu" target="_blank"><i class="fab fa-twitter"></i></a>
+                            <a class="btn btn-outline-light btn-social" href="https://www.facebook.com/upcedu" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                            <a class="btn btn-outline-light btn-social" href="https://www.youtube.com/@UPCedupe" target="_blank"><i class="fab fa-youtube"></i></a>
+                            <a class="btn btn-outline-light btn-social" href="https://www.instagram.com/upcedu/" target="_blank"><i class="fab fa-instagram"></i></a>
+                            <a class="btn btn-outline-light btn-social" href="https://www.linkedin.com/school/universidad-peruana-de-ciencias-aplicadas/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <h5 class="text-white mb-4">Acceso Rápido</h5>
+                        <a class="btn btn-link" href="champions.html">Champions</a>
+                        <a class="btn btn-link" href="stats.html">Stats</a>
+                        <a class="btn btn-link" href="lol_tier.html">Tier Lists</a>
+                        <a class="btn btn-link" href="graphs.html">Graphs</a>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <h5 class="text-white mb-4">Boletín de noticias</h5>
+                        <p>Consigue las últimas actualizaciones de tus campeones favoritos</p>
+                        <div class="position-relative w-100 mt-3">
+                            <input class="form-control border-0 rounded-pill w-100 ps-4 pe-5" type="text" placeholder="Su e-mail" style="height: 48px;">
+                            <button type="button" class="btn shadow-none position-absolute top-0 end-0 mt-1 me-2"><i class="fa fa-paper-plane text-primary fs-4"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container px-lg-5">
+                <div class="copyright">
+                    <div class="row">
+                        <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                            &copy; <a class="border-bottom" href="#">MiraLOL</a> 2023, Todos Los Derechos Reservados. 
+							
+							<!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
+							Diseño por <a class="border-bottom" href="https://htmlcodex.com">HTML Codex</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Footer End -->
+
+        <!-- Back to Top -->
+        <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top pt-2"><i class="bi bi-arrow-up"></i></a>
+    </div>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/wow/wow.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="lib/isotope/isotope.pkgd.min.js"></script>
+    <script src="lib/lightbox/js/lightbox.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"
+    integrity="sha512-M7nHCiNUOwFt6Us3r8alutZLm9qMt4s9951uo8jqO4UwJ1hziseL6O3ndFyigx6+LREfZqnhHxYjKRJ8ZQ69DQ==" 
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.5.0"></script>
+
+
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
+    <script src="js/ban_percen.js"></script>
+    <script src="js/score_percen.js"></script>
+    <script src="js/pick_percen.js"></script>
+
+</body>
+
+</html>
