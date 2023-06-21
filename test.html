@@ -2,22 +2,10 @@
 <html>
 <head>
     <title>GetStatistics Result</title>
+    <script src="test.js"></script>
 </head>
 <body>
-    <?php
-    try {
-        $conn = new PDO("sqlsrv:server = tcp:mirarlol.database.windows.net,1433; Database = champion_db", "joacoenriqueconrado1", "Siempregptarqui1");
-        $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        
-        $stmt = $conn->query("EXEC GetStatistics");
-        $result = $stmt->fetch(PDO::FETCH_ASSOC);
-        
-        foreach ($result as $key => $value) {
-            echo $key . ": " . $value . "<br>";
-        }
-    } catch (PDOException $e) {
-        die("Error connecting to SQL Server: " . $e->getMessage());
-    }
-    ?>
+    <h1>GetStatistics Result</h1>
+    <div id="result"></div>
 </body>
 </html>
