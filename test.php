@@ -6,10 +6,12 @@ try {
 
     // Execute the GetStatistics procedure
     $stmt = $conn->query("EXEC GetStatistics");
-    $result = $stmt->fetch(PDO::FETCH_ASSOC);
 
-    // Log the result in the console
-    echo '<script>console.log(' . json_encode($result) . ');</script>';
+    // Fetch all rows from the result set
+    while ($result = $stmt->fetch(PDO::FETCH_ASSOC)) {
+        // Log each row in the console
+        echo '<script>console.log(' . json_encode($result) . ');</script>';
+    }
 } catch (PDOException $e) {
     print("Error connecting to SQL Server.");
     die(print_r($e));
