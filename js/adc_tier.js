@@ -32,7 +32,7 @@ tiers.forEach(function(tier) {
     championsInTier.forEach(function(champion) {
       var attributeName = champion.Name.replace(/[' .]/g, "");
       var imageSrc = "championsgallery/" + attributeName + ".png";
-      var championCell = $('<td class="gold-cell" style="text-align: center;"><img src="' + imageSrc + '" width="50" height="50" class="image-with-padding"><br>' + '<span class="score">' + champion.Score + '</span></td>');
+      var championCell = $('<td class="gold-cell" style="text-align: center;"><img src="' + imageSrc + '" width="50" height="50" class="image-with-padding"><br>' + '<span class="score">' + parseFloat(champion.Score).toFixed(2) + '</span></td>');
       tierRow.append(championCell);
     });
     $('#championTable').append(tierRow);
