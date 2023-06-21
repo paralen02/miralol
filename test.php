@@ -13,27 +13,9 @@ try {
         $rows[] = $result;
     }
 
-    // Define the file name for the CSV
-    $filename = "results.csv";
-
-    // Set the Content-Type and Content-Disposition headers
-    header("Content-Type: text/csv");
-    header("Content-Disposition: attachment; filename=\"$filename\"");
-
-    // Open a file pointer using the php://output IO stream
-    $fp = fopen("php://output", "w");
-
-    // Add the column names as headers to the CSV file
-    $columnNames = array_keys($rows[0]);
-    fputcsv($fp, $columnNames);
-
-    // Loop through the rows and add them to the CSV file
-    foreach ($rows as $row) {
-        fputcsv($fp, $row);
-    }
-
-    // Close the file pointer
-    fclose($fp);
+    // Send JSON response
+    header('Content-Type: application/json');
+    echo json_encode($rows);
 } catch (PDOException $e) {
     print("Error connecting to SQL Server.");
     die(print_r($e));
