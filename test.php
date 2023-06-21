@@ -1,5 +1,4 @@
 <?php
-print("v1");
 // PHP Data Objects(PDO) Sample Code:
 try {
     $conn = new PDO("sqlsrv:server = tcp:mirarlol.database.windows.net,1433; Database = champion_db", "joacoenriqueconrado1", "Siempregptarqui1");
@@ -7,7 +6,7 @@ try {
 
     // Execute the GetStatistics procedure
     $stmt = $conn->query("EXEC GetStatistics");
-    $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    $result = $stmt->fetch(PDO::FETCH_ASSOC);
 
     // Log the result in the console
     echo '<script>console.log(' . json_encode($result) . ');</script>';
