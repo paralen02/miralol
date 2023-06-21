@@ -10,7 +10,7 @@ try {
     // Fetch all rows from the result set
     while ($result = $stmt->fetch(PDO::FETCH_ASSOC)) {
         // Log each row in the console
-        echo '<script>console.log(' . json_encode($result) . ');</script>';
+        echo json_encode($result);;
     }
 } catch (PDOException $e) {
     print("Error connecting to SQL Server.");
