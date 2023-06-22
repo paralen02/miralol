@@ -67,6 +67,9 @@
   tr:nth-child(odd) {
     background-color: grey;
   } 
+  .black-text {
+    color: black;
+  }
 
 .chartMenu {
     width: 68.75vw;
@@ -273,22 +276,29 @@ h6,
     }
 }
 
-
+.altura-fija {
+    height: 300px;
+}
 /*** Hero Header ***/
-.hero-header {
-    background:
-        url(../img/bg-dot.png),
-        url(../img/bg-dot.png),
-        url(../img/bg-round.png),
-        url(../img/bg-tree.png);
-        /* url(../img/bg-bottom-hero.png); */
-    background-position:
-        10px 10px,
-        bottom 190px right 10px,
-        left 55% top -1px,
-        left 45% bottom -1px,
-        center bottom -1px;
+.hero-cool-header {
+    background: url(../img/teemo.jpg);
     background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.hero-header {
+    background: url(../img/white.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.hero-header-2 {
+    background: url(../img/white.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
 }
 
 
